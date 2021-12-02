@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv = "refresh" content = "0.01">
+    <link rel = "stylesheet" href = "{{ url_for('static', filename = 'styles.css') }}">
+    <title>Table test</title>
+</head>
+<body>
+    <form action = "{{ url_for('home') }}" method = "POST">
+        
+        <p>Green: clean</p>
+        <p>Red: Dirty</p>
+        <p>Click on table and submit to change status to clean</p>
+        <div class = "layout">
+            <label class = "container one">
+                <input type = "checkbox" id = "Table1" name = "Tables" value = "Table1">
+                <div class = "table table1 sqaure">
+                    r1c1
+                    <p>{{ t1 }}</p>
+                    <div class = "layer"></div>
+                </div>
+            </label><br>
+
+            <!--label class = "container one">
+                <input type = "checkbox" id = "Table1" name = "Tables" value = "Table1">
+                <div class = "table table1 sqaure">
+                    r1c1
+                    <p>null</p>
+                    <div class = "layer"></div>
+                </div>
+            </!--label><br-->
+            
+            <!--label class = "container two">
+                <input type = "checkbox" id = "Table2" name = "Tables" value = "Table2">
+                <div class = "table table2 square">
+                    r1c2
+                    <p>{{ t2 }}</p>
+                    <div class = "layer"></div>
+                </div>
+            </!--label><br-->
+
+            <label class = "container two">
+                <input type = "checkbox" id = "Table2" name = "Tables" value = "Table2">
+                <div class = "table table2 square">
+                    r1c2
+                    <p>null</p>
+                    <div class = "layer"></div>
+                </div>
+            </label><br>
+
+            <label class = "container three">
+                <input type = "checkbox" id = "Table3" name = "Tables" value = "Table3">
+                <div class = "table table3 square">
+                    r1c3
+                    <p>null</p>
+                    <div class = "layer"></div>
+                </div>
+            </label><br>
+
+            <label class = "container four">
+                <input type = "checkbox" id = "Table4" name = "Tables" value = "Table4">
+                <div class = "table table4 square">
+                    r1c4
+                    <p>null</p>
+                    <div class = "layer"></div>
+                </div>
+            </label><br>
+
+            <label class = "container five">
+                <input type = "checkbox" id = "Table5" name = "Tables" value = "Table5">
+                <div class = "table table5 circle">
+                    &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp r2c1
+                    <p>null</p>
+                    <div class = "layer circle"></div>
+                </div>
+            </label><br>
+
+            <label class = "container six">
+                <input type = "checkbox" id = "Table6" name = "Tables" value = "Table6">
+                <div class = "table table6 circle">
+                    &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp r2c2
+                    <p>null</p>
+                    <div class = "layer circle"></div>
+                </div>
+            </label><br>
+
+            <!--label class = "container seven">
+                <input type = "checkbox" id = "Table7" name = "Tables" value = "Table7">
+                <div class = "table table7 long">
+                    r1c5
+                    <p>null</p>
+                    <div class = "layer"></div>
+                </div>
+            </label><br-->
+
+            <label class = "container seven">
+                <input type = "checkbox" id = "Table7" name = "Tables" value = "Table7">
+                <div class = "table table7 long">
+                    r1c5
+                    <p>{{ t7 }}</p>
+                    <div class = "layer"></div>
+                </div>
+            </label><br>
+
+            <label class = "container eight">
+                <input type = "checkbox" id = "Table8" name = "Tables" value = "Table8">
+                <div class = "table table8 long">
+                    r1c6
+                    <p>null</p>
+                    <div class = "layer"></div>
+                </div>
+            </label><br>
+
+            <label class = "container nine">
+                <input type = "checkbox" id = "Table9" name = "Tables" value = "Table9">
+                <div class = "table table9 long">
+                    r1c7
+                    <p>null</p>
+                    <div class = "layer"></div>
+                </div>
+            </label><br>
+
+            <label class = "container ten">
+                <input type = "checkbox" id = "Table10" name = "Tables" value = "Table10">
+                <div class = "table table10 long">
+                    r1c8
+                    <p>null</p>
+                    <div class = "layer"></div>
+                </div>
+            </label><br>
+
+            <label class = "container eleven">
+                <input type = "checkbox" id = "Table11" name = "Tables" value = "Table11">
+                <div class = "table table11 wide">
+                    r3c1
+                    <p>null</p>
+                    <div class = "layer"></div>
+                </div>
+            </label><br>
+        </div>
+        
+        <input type = "submit" value = "Confirm Chocie">
+    </form>
+</body>
+
+<script src = "{{ url_for('static', filename = 'tables.js') }}"></script>
+</html>
