@@ -46,8 +46,7 @@
  - With: <br>
    - Arduino (Leonardo) <br>
    - Pressure sensors (buttons) <br>
-   - Wires <br>
-   - Resistors (10k ohms) <br>
+   - Wires, Resistors (10k ohms), a Breadboard <br>
    - And a computer <br>
  - as the hardware, <br>
  - using: <br>
