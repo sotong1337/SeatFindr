@@ -2,8 +2,9 @@ import serial
 from flask import Flask, request, render_template
 
 class Table():
-    def __init__(self, TableName):
+    def __init__(self, TableName, chairs_left):
         self._tableName = TableName
+        self._chairs_left = chairs_left
         self._display_clean = True
         self._clean = True
         self._presses = ""
@@ -37,34 +38,46 @@ class Table():
         self._display_clean = new_status
         self._clean = new_status
 
+    def change_chairs(self, add):
+        if add:
+            self._chairs_left += 1
+        else:
+            self._chairs_left -= 1
+
     def display_status(self):
+        #also returns seats
         if self._display_clean:
             return "Cleaned"
         return "Unclean"
 
 class Chair(Table):
-    def __init__(self, ChairName):
+    def __init__(self, ChairName, ParentTable):
         self._chairName = ChairName
+        self._parentTable = ParentTable
         self._occupied = False
 
     def check_status(self, buttonState):
         if buttonState == "1":
-            self._occupied = False
-        else:
             self._occupied = True
+            self._parentTable.change_chairs(False)
+        else:
+            self._occupied = False
+            self._parentTable.change_chairs(True)
     
+    #prob dun need
     def display_status(self):
         return self._occupied
 
-Table1 = Table("Table1")
+#Table1 = Table("Table1")
 #Table2 = Table("Table2")
-Table7 = Table("Table7")
+Table7 = Table("Table7", 4)
+Chair7 = Chair("Chair7", Table7)
 
 #tables = [Table1, Table2]
 #table_names = ["Table1", "Table2"]
 
-tables = [Table1, Table7]
-table_names = ["Table1", "Table7"]
+tables = [Table7]
+table_names = ["Chair7", "Table7"]
         
 app = Flask(__name__)
 @app.route('/',  methods = ["GET", "POST"])
@@ -94,10 +107,11 @@ def home():
         except:
             pass
 
-        t1 = Table1.display_status()
+        t1 = Chair7.display_status()
         #t2 = Table2.display_status()
         t7 = Table7.display_status()
 
+        ## table also needs to return seats
         #return render_template("index.html", t1 = t1, t2 = t2)
         return render_template("index.html", t1 = t1, t7 = t7)
     
@@ -108,7 +122,7 @@ def home():
             table = tables[table_names.index(i)]
             table.change_clean(True)
 
-        t1 = Table1.display_status()
+        t1 = Chair7.display_status()
         #t2 = Table2.display_status()
         t7 = Table7.display_status()
         

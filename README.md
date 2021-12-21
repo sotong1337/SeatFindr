@@ -54,4 +54,3 @@
    - and Arduino IDE <br>
  - as the software. <br>
  <br>
- Special thanks to my mum who works at a Ya Kun and came up with this problem <3
