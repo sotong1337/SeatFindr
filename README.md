@@ -1,16 +1,36 @@
 # Clear-table
- For a tkkyia project
+ For a tkkyia project <br>
 
 # Problem Analysis
- Now that tray return is mandatory, many of the cleaners are stationed at the tray return point. <br>
+ Hawker centers are cool, with Singapore's hawker culture being a part of UNESCO cultural Intangible cultural heritage. <br>
+ Cheap and tasty food, as well as a place for interaction are all part of its appeal. <br>
+ However, during peak hours, seats are almost impossible to find, much less clean seats. <br>
+ Futhermore, now that tray return is mandatory, many of the cleaners are stationed at the tray return point. <br>
  When this happens, they are unaware of which tables are uncleaned as they are no longer clearing the tables. <br>
  Sometimes, the tables look clean, but still have germs on it. <br>
- Yet, if cleaners were to go around to clean the tbales, we experienced that the tray return point piles up with uncleaned dishes really quickly. <br>
- Thus, this project aims to create a system that is able to inform the cleaners which table are not yet cleaned. <br>
+ Yet, if cleaners were to go around to clean the tbales, the tray return point piles up with uncleaned dishes really quickly. <br>
+ <img src = "img0.png">
+ Thus, this project aims to create a system that is able to inform the patrons and cleaners which tables are occupied or are not yet cleaned. <br>
 
 # Methodology
+ How many people are at a seat <br>
+ We know a chair is occupiued if there is pressure on the chair. <br>
+ Thus, each chair will have a pressure sensor. <br>
+ But that only tells us how many chairs are being sat on. <br>
+ How do we know how many chairs are occupied for a single table? <br>
+ By making the parent class (table) store a list its chairs, <br>
+ and sending the data of which specific chair is being sat on. <br>
+ What if someone is just putting something on it? i.e. Can we choose not to detect if someone is choping? <br>
+ This is an option left for the hawker centers to decide. (because I personally think choping is fine) <br>
+ This is why we use pressure sensors. <br>
+ By using two pieces of low resistance metal, <br>
+ When more weight is put on it, <br>
+ The metals get in contact more and there will be less resistance. <br>
+ Thus, we can can set a threshold for a minimum pressure to set off the sensor. <br>
+ <br>
+ Whether a table is clean: <br>
  A table is unclean after someone dines at that table. <br>
- We are able to know if someone is at the table if there is a pressure detected. <br>
+ We are able to know if someone is eating at the table if there is a pressure detected. <br>
  Thus, pressure sensors will be used on each table. <br>
  How do we know that the person is dining there and not just accidentally touched the table or is resting for a while? <br>
  Thus a "eating time" is defined. <br>
@@ -40,17 +60,28 @@
 
 # Final Product
  The final product is a: <br>
- - Software with a layout of the coffee shop/ hawker center/ etc, <br>
- - that can detect when a person is finished eating, change the table status accordingly, <br>
- - and allow cleaners to inform it which tables are cleaned, and change the table status accordingly. <br>
+ - Web app and mobile application with a layout of the coffee shop/ hawker center/ etc, <br>
+ - that can detect how many people are at that table and <br>
+ - when a person is finished eating, changing the table's status accordingly, <br>
+ - and allow cleaners to inform it (the system) which tables are cleaned, and change the table status accordingly. <br>
  - With: <br>
-   - Arduino (Leonardo) <br>
-   - Pressure sensors (buttons) <br>
+   - Arduino (Uno) <br>
+   - Pressure sensors (buttons & home-made pressure senors) <br>
+   - HC-05 <br>
    - Wires, Resistors (10k ohms), a Breadboard <br>
-   - And a computer <br>
  - as the hardware, <br>
  - using: <br>
    - Python flask <br>
-   - and Arduino IDE <br>
+   - Arduino IDE <br>
+   - and Flutter (Dart) <br>
  - as the software. <br>
  <br>
+
+# Notes:
+ This only contain codes for the web app part. <br>
+ Codes for the mobile app found here: https://github.com/LeeJingPeng/SeatFindr <br>
+ Both uses the same logic <br>
+ app2.py and table2.ino are the final ver, Although time values used are only for demo. <br>
+
+# To do:
+ Make circuit diagram for arduino

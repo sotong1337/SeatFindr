@@ -103,7 +103,9 @@ Table table1(Table1, "Table1");
 //Table table2(Table2, "Table2");
 Table table7(Table7, "Table7");
 
-void setup() {}
+void setup() {
+  Serial.begin(115200);
+}
 
 void loop() {
   table1.updateState();

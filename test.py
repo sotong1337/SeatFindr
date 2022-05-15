@@ -76,81 +76,14 @@ class Chair(Table):
         else:
             return "Available"
 
-# Table7 = Table("Table7", 4)
-# Chair7_1 = Chair("Chair7_1", Table7)
-# Chair7_2 = Chair("Chair7_2", Table7)
-# Chair7_3 = Chair("Chair7_3", Table7)
-# Chair7_4 = Chair("Chair7_4", Table7)
-
-# tables = [Chair7_1, Chair7_2, Chair7_3, Chair7_4, Table7]
-# table_names = ["Chair7_1", "Chair7_2", "Chair7_3", "Chair7_4", "Table7"]
-
-Table1 = Table("Table1", 3)
-Chair1_1 = Chair("Chair1_1", Table1)
-Chair1_2 = Chair("Chair1_2", Table1)
-Chair1_3 = Chair("Chair1_3", Table1)
-
-Table2 = Table("Table2", 2)
-Chair2_1 = Chair("Chair2_1", Table2)
-Chair2_2 = Chair("Chair2_2", Table2)
-
-Table3 = Table("Table3", 2)
-Chair3_1 = Chair("Chair3_1", Table3)
-Chair3_2 = Chair("Chair3_2", Table3)
-
-Table4 = Table("Table4", 3)
-Chair4_1 = Chair("Chair4_1", Table4)
-Chair4_2 = Chair("Chair4_2", Table4)
-Chair4_3 = Chair("Chair4_3", Table4)
-
-Table5 = Table("Table5", 2)
-Chair5_1 = Chair("Chair5_1", Table5)
-Chair5_2 = Chair("Chair5_2", Table5)
-
-Table6 = Table("Table6", 2)
-Chair6_1 = Chair("Chair6_1", Table6)
-Chair6_2 = Chair("Chair6_2", Table6)
-
-Table7 = Table("Table7", 3)
+Table7 = Table("Table7", 4)
 Chair7_1 = Chair("Chair7_1", Table7)
 Chair7_2 = Chair("Chair7_2", Table7)
 Chair7_3 = Chair("Chair7_3", Table7)
+Chair7_4 = Chair("Chair7_4", Table7)
 
-Table8 = Table("Table8", 2)
-Chair8_1 = Chair("Chair8_1", Table8)
-Chair8_2 = Chair("Chair8_2", Table8)
-
-Table9 = Table("Table9", 2)
-Chair9_1 = Chair("Chair9_1", Table9)
-Chair9_2 = Chair("Chair9_2", Table9)
-
-Table10 = Table("Table10", 3)
-Chair10_1 = Chair("Chair10_1", Table10)
-Chair10_2 = Chair("Chair10_2", Table10)
-Chair10_3 = Chair("Chair10_3", Table10)
-
-tables = [Table1, Chair1_1, Chair1_2, Chair1_3,\
-Table2, Chair2_1, Chair2_2, \
-Table3, Chair3_1, Chair3_2, \
-Table4, Chair4_1, Chair4_2, Chair4_3, \
-Table5, Chair5_1, Chair5_2, \
-Table6, Chair6_1, Chair6_2, \
-Table7, Chair7_1, Chair7_2, Chair7_3, \
-Table8, Chair8_1, Chair8_2, \
-Table9, Chair9_1, Chair9_2, \
-Table10, Chair10_1, Chair10_2, Chair10_3]
-
-table_names = ["Table1", "Chair1_1", "Chair1_2", "Chair1_3",\
-"Table2", "Chair2_1", "Chair2_2", \
-"Table3", "Chair3_1", "Chair3_2", \
-"Table4", "Chair4_1", "Chair4_2", "Chair4_3", \
-"Table5", "Chair5_1", "Chair5_2", \
-"Table6", "Chair6_1", "Chair6_2", \
-"Table7", "Chair7_1", "Chair7_2", "Chair7_3", \
-"Table8", "Chair8_1", "Chair8_2", \
-"Table9", "Chair9_1", "Chair9_2", \
-"Table10", "Chair10_1", "Chair10_2", "Chair10_3"]
-
+tables = [Chair7_1, Chair7_2, Chair7_3, Chair7_4, Table7]
+table_names = ["Chair7_1", "Chair7_2", "Chair7_3", "Chair7_4", "Table7"]
 ser = 1
 
 app = Flask(__name__)
@@ -200,23 +133,10 @@ def home():
 
         except:
             pass
-        
-        #t1_status, c1_status, max_chairs1 = Table1.display_status()
-        t2_status, c2_status, max_chairs2 = Table2.display_status()
-        t3_status, c3_status, max_chairs3 = Table3.display_status()
-        #t4_status, c4_status, max_chairs4 = Table4.display_status()
-        t5_status, c5_status, max_chairs5 = Table5.display_status()
-        #t6_status, c6_status, max_chairs6 = Table6.display_status()
-        #t7_status, c7_status, max_chairs7 = Table7.display_status()
-        #t8_status, c8_status, max_chairs8 = Table8.display_status()
-        t9_status, c9_status, max_chairs9 = Table9.display_status()
-        t10_status, c10_status, max_chairs10 = Table10.display_status()
 
-        return render_template("index2.html", t3_status = t3_status, c3_status = c3_status, max_chairs3 = max_chairs3, \
-            t2_status = t2_status, c2_status = c2_status, max_chairs2 = max_chairs2, \
-            t5_status = t5_status, c5_status = c5_status, max_chairs5 = max_chairs5, \
-            t9_status = t9_status, c9_status = c9_status, max_chairs9 = max_chairs9, \
-            t10_status = t10_status, c10_status = c10_status, max_chairs10 = max_chairs10)
+        t7_status, c7_status, max_chairs = Table7.display_status()
+
+        return render_template("index2.html", t7_status = t7_status, c7_status = c7_status, max_chairs = max_chairs)
     
     else:
         to_change = request.form.getlist("Tables")
@@ -225,17 +145,10 @@ def home():
             table = tables[table_names.index(i)]
             table.change_clean(True)
 
-        t2_status, c2_status, max_chairs2 = Table2.display_status()
-        t3_status, c3_status, max_chairs3 = Table3.display_status()
-        t5_status, c5_status, max_chairs5 = Table5.display_status()
-        t9_status, c9_status, max_chairs9 = Table9.display_status()
-        t10_status, c10_status, max_chairs10 = Table10.display_status()
-
-        return render_template("index2.html", t3_status = t3_status, c3_status = c3_status, max_chairs3 = max_chairs3, \
-            t2_status = t2_status, c2_status = c2_status, max_chairs2 = max_chairs2, \
-            t5_status = t5_status, c5_status = c5_status, max_chairs5 = max_chairs5, \
-            t9_status = t9_status, c9_status = c9_status, max_chairs9 = max_chairs9, \
-            t10_status = t10_status, c10_status = c10_status, max_chairs10 = max_chairs10)
+        t7_status, c7_status, max_chairs = Table7.display_status()
+        
+        
+        return render_template("index2.html", t7_status = t7_status, c7_status = c7_status, max_chairs = max_chairs)
 
 if __name__ == "__main__":
     app.run(debug = True)

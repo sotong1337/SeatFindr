@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv = "refresh" content = "0.01">
+    <link rel = "stylesheet" href = "{{ url_for('static', filename = 'styles2.css') }}">
+    <title>Table test</title>
+</head>
+<body>
+    <form action = "{{ url_for('home') }}" method = "POST">
+        
+        <p>Green: clean</p>
+        <p>Red: Dirty</p>
+        <p>Click on table and submit to change status to clean</p>
+        <div class = "layout">
+            <label class = "container one">
+                <input type = "checkbox" id = "Table1" name = "Tables" value = "Table1">
+                <div class = "table cleaned_table table1 wide">
+                    r1c1
+                    <p id="full_chairs">3</p>
+                    <div class = "layer wide"></div>
+                </div>
+            </label>
+
+            <label class = "container two">
+                <input type = "checkbox" id = "Table2" name = "Tables" value = "Table2">
+                {% if t2_status == "Cleaned" %}
+                <div class = "table cleaned_table table2 square">
+                    r1c2
+                    <p class="status">{{ t2_status }}</p>
+                    {% if c2_status == max_chairs2 %}
+                    <p id="full_chairs">{{ c2_status }}</p>
+                    {% else %}
+                    <p id="unfull_chairs">{{ c2_status }}</p>
+                    {% endif %}
+                    <div class = "layer"></div>
+                </div>
+                {% else %}
+                <div class = "table uncleaned_table table2 square">
+                    r1c2
+                    <p class="status">{{ t2_status }}</p>
+                    {% if c7_status == max_chairs2 %}
+                    <p id="full_chairs">{{ c2_status }}</p>
+                    {% else %}
+                    <p id="unfull_chairs">{{ c2_status }}</p>
+                    {% endif %}
+                    <div class = "layer"></div>
+                </div>
+                {% endif %}
+            </label><br>
+
+            <label class = "container three">
+                <input type = "checkbox" id = "Table3" name = "Tables" value = "Table3">
+                {% if t3_status == "Cleaned" %}
+                <div class = "table cleaned_table table3 square">
+                    r1c3
+                    <p class="status">{{ t3_status }}</p>
+                    {% if c3_status == max_chairs3 %}
+                    <p id="full_chairs">{{ c3_status }}</p>
+                    {% else %}
+                    <p id="unfull_chairs">{{ c3_status }}</p>
+                    {% endif %}
+                    <div class = "layer"></div>
+                </div>
+                {% else %}
+                <div class = "table uncleaned_table table3 square">
+                    r1c3
+                    <p class="status">{{ t3_status }}</p>
+                    {% if c3_status == max_chairs3 %}
+                    <p id="full_chairs">{{ c3_status }}</p>
+                    {% else %}
+                    <p id="unfull_chairs">{{ c3_status }}</p>
+                    {% endif %}
+                    <div class = "layer"></div>
+                </div>
+                {% endif %}
+            </label><br>
+
+            <label class = "container four">
+                <input type = "checkbox" id = "Table4" name = "Tables" value = "Table4">
+                <div class = "table cleaned_table table4 wide">
+                    r4c4
+                    <p id="full_chairs">3</p>
+                    <div class = "layer wide"></div>
+                </div>
+            </label>
+
+            <label class = "container five">
+                <input type = "checkbox" id = "Table5" name = "Tables" value = "Table5">
+                {% if t5_status == "Cleaned" %}
+                <div class = "table cleaned_table table5 circle">
+                    &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp r2c1
+                    <p class="status">{{ t5_status }}</p>
+                    {% if c5_status == max_chairs5 %}
+                    <p id="full_chairs">{{ c5_status }}</p>
+                    {% else %}
+                    <p id="unfull_chairs">{{ c5_status }}</p>
+                    {% endif %}
+                    <div class = "layer circle"></div>
+                </div>
+                {% else %}
+                <div class = "table uncleaned_table table6 circle">
+                    &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp r2c1
+                    <p class="status">{{ t5_status }}</p>
+                    {% if c5_status == max_chairs5 %}
+                    <p id="full_chairs">{{ c5_status }}</p>
+                    {% else %}
+                    <p id="unfull_chairs">{{ c5_status }}</p>
+                    {% endif %}
+                    <div class = "layer circle"></div>
+                </div>
+                {% endif %}
+            </label><br>
+
+            <label class = "container six">
+                <input type = "checkbox" id = "Table6" name = "Tables" value = "Table6">
+                <div class = "table cleaned_table table6 circle">
+                    &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp r2c2
+                    <p class = "status" id="full_chairs">2</p>
+                    <div class = "layer circle"></div>
+                </div>
+            </label><br>
+
+            <label class = "container seven">
+                <input type = "checkbox" id = "Table7" name = "Tables" value = "Table7">
+                <div class = "table cleaned_table table7 wide">
+                    r3c1
+                    <p id="full_chairs">3</p>
+                    <div class = "layer wide"></div>
+                </div>
+            </label>
+
+            <label class = "container eight">
+                <input type = "checkbox" id = "Table8" name = "Tables" value = "Table8">
+                <div class = "table cleaned_table table8 square">
+                    r3c2
+                    <p id="full_chairs">2</p>
+                    <div class = "layer"></div>
+                </div>
+            </label><br>
+
+            <label class = "container nine">
+                <input type = "checkbox" id = "Table9" name = "Tables" value = "Table9">
+                {% if t9_status == "Cleaned" %}
+                <div class = "table cleaned_table table9 square">
+                    r3c3
+                    <p class="status">{{ t9_status }}</p>
+                    {% if c9_status == max_chairs9 %}
+                    <p id="full_chairs">{{ c9_status }}</p>
+                    {% else %}
+                    <p id="unfull_chairs">{{ c9_status }}</p>
+                    {% endif %}
+                    <div class = "layer"></div>
+                </div>
+                {% else %}
+                <div class = "table uncleaned_table table9 square">
+                    r3c3
+                    <p class="status">{{ t9_status }}</p>
+                    {% if c9_status == max_chairs9 %}
+                    <p id="full_chairs">{{ c9_status }}</p>
+                    {% else %}
+                    <p id="unfull_chairs">{{ c9_status }}</p>
+                    {% endif %}
+                    <div class = "layer"></div>
+                </div>
+                {% endif %}
+            </label><br>
+
+            <label class = "container ten">
+                <input type = "checkbox" id = "Table10" name = "Tables" value = "Table10">
+                {% if t10_status == "Cleaned" %}
+                <div class = "table cleaned_table table10 wide">
+                    r3c4
+                    <p class="status">{{ t10_status }}</p>
+                    {% if c10_status == max_chairs10 %}
+                    <p id="full_chairs">{{ c10_status }}</p>
+                    {% else %}
+                    <p id="unfull_chairs">{{ c10_status }}</p>
+                    {% endif %}
+                    <div class = "layer"></div>
+                </div>
+                {% else %}
+                <div class = "table uncleaned_table table4 wide">
+                    r3c4
+                    <p class="status">{{ t10_status }}</p>
+                    {% if c10_status == max_chairs10 %}
+                    <p id="full_chairs">{{ c10_status }}</p>
+                    {% else %}
+                    <p id="unfull_chairs">{{ c10_status }}</p>
+                    {% endif %}
+                    <div class = "layer"></div>
+                </div>
+                {% endif %}
+            </label><br>
+        
+        <input type = "submit" value = "Confirm Chocie">
+    </form>
+</body>
+
+<!--<script src = "{{ url_for('static', filename = 'tables.js') }}"></script>-->
+</html>

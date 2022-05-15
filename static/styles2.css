@@ -1,0 +1,173 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    overflow: scroll;
+}
+
+.layout {
+    width: 100%;
+    height: 100vh;
+    display: block;
+}
+
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-size: 20px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* make previous checkbox disappear */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+div p {
+    position: relative;
+    padding-right: 5px;
+    top: -30px;
+    text-align: end;
+    font-size: 14px;
+    font-family: "Times New Roman", Times, serif;
+}
+  
+/* Create a custom checkbox */
+.table {
+    float: left;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color:grey;
+}
+
+
+.wide {
+    height: 100px;
+    width: 160px;
+}
+
+.square {
+    height: 100px;
+    width: 100px;
+}
+
+.circle {
+    height: 140px;
+    width: 140px;
+    border-radius: 50%;
+}
+
+.one {
+    top: 20px;
+    left: 50px;
+}
+
+.two {
+    top: 20px;
+    left: 415px;
+}
+
+.three {
+    top: 2px;
+    left: 680px;
+}
+
+.four {
+    top: -28px;
+    left: 945px;
+}
+
+.five {
+    top: 100px;
+    left: 250px;
+}
+
+.six {
+    top: 90px;
+    left: 800px;
+}
+
+.seven {
+    top: 220px;
+    left: 50px;
+}
+
+.eight {
+    top: 210px;
+    left: 415px;
+}
+
+.nine {
+    top: 190px;
+    left: 680px;
+}
+
+.ten {
+    top: 160px;
+    left: 945px;
+}
+
+/* Make a layer: On hover, add a green overlay */
+.layer {
+    position: inherit;
+    top: inherit;
+    width: inherit;
+    height: inherit;
+    background-color: rgb(123, 255, 0);
+    opacity: 0;
+}
+
+.container:hover .layer {
+    opacity: 50%;
+}
+  
+/* When the checkbox is checked, add a blue border */
+.container input:checked ~ .table {
+    box-shadow:0px 0px 0px 2px rgb(11, 157, 255) inset;
+}
+
+input[type = submit] {
+    position: absolute;
+    top: 120vh;
+    height: 50px;
+    width: 100%;
+}
+
+#full_chairs {
+    color: green;
+    font-size: 100px;
+    font-family:'Courier New', Courier, monospace;
+    font-weight: bold;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: black;
+}
+#unfull_chairs {
+    color: rgb(177, 0, 0);
+    font-size: 100px;
+    font-family:'Courier New', Courier, monospace;
+    font-weight: bold;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: black;
+}
+.cleaned_table {
+    background-color: yellowgreen;
+}
+.uncleaned_table {
+    background-color: red;
+}
