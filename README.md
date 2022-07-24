@@ -1,5 +1,4 @@
-# Clear-table
- For a tkkyia project <br>
+# Seat Findr
 
 # Problem Analysis
  Hawker centers are cool, with Singapore's hawker culture being a part of UNESCO cultural Intangible cultural heritage. <br>
